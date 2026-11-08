@@ -1,0 +1,110 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(36px, 7vw, 96px);
+  align-items: stretch;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bio p {
+  color: var(--ink-soft);
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.85;
+  max-width: 600px;
+}
+.bio p + p {
+  margin-top: 18px;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.facts span {
+  color: var(--brand-aqua);
+  background: rgba(193, 88, 70, 0.08);
+  border: 1px solid rgba(193, 88, 70, 0.2);
+  border-radius: 50px;
+  padding: 9px 14px;
+  font-size: 12px;
+}
+
+.education {
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(26px, 4vw, 42px);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 92% 5%, rgba(73, 221, 228, 0.18), transparent 38%),
+    linear-gradient(145deg, rgba(255,255,255,0.065), rgba(255,255,255,0.015));
+  box-shadow: 0 30px 80px -55px rgba(193, 88, 70, 0.46);
+}
+.educationEyebrow {
+  position: absolute;
+  top: 30px;
+  left: 32px;
+  color: var(--violet-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.monogram {
+  position: absolute;
+  right: 28px;
+  top: 22px;
+  color: rgba(171, 166, 163, 0.1);
+  font-family: var(--font-display);
+  font-size: clamp(70px, 10vw, 130px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.education h3 {
+  position: relative;
+  max-width: 360px;
+  font-size: clamp(20px, 2.1vw, 28px);
+  line-height: 1.35;
+  margin: 0 0 16px;
+}
+.institution {
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.faculty {
+  color: var(--ink-soft);
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+.specialization {
+  width: fit-content;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--line);
+  padding-top: 13px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .education {
+    min-height: 280px;
+  }
+}

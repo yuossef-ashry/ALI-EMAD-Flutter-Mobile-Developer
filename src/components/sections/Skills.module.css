@@ -1,0 +1,126 @@
+.glow {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(820px, 90vw);
+  height: 520px;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(73, 221, 228, 0.16), rgba(193, 88, 70, 0.1), transparent 65%);
+  filter: blur(60px);
+}
+
+.categoryBlock {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 44px;
+}
+.categoryBlock:last-of-type {
+  margin-bottom: 56px;
+}
+
+.categoryLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px 24px 0;
+  margin-bottom: 20px;
+}
+
+.iconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid;
+  flex-shrink: 0;
+}
+.iconBox svg {
+  width: 23px;
+  height: 23px;
+}
+
+.categoryMark {
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.name {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 7px;
+  padding: 0 24px;
+}
+
+.blurb {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.65;
+  padding: 0 24px 24px;
+}
+
+.marquees {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 23px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.tickerItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 0 24px;
+  white-space: nowrap;
+}
+.tickerItem svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
