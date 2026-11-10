@@ -124,3 +124,9 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .marquees {
+    display: none;
+  }
+}

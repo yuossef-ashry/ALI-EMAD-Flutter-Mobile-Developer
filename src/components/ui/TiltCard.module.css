@@ -35,6 +35,13 @@
   transform: translateZ(20px);
 }
 
+@media (hover: none) and (pointer: coarse) {
+  .card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .card {
     transform: none !important;

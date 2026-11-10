@@ -11,12 +11,13 @@ interface MarqueeProps {
 
 export function Marquee({ children, direction = 'left', duration = 26, className }: MarqueeProps) {
   const prefersReduced = useReducedMotion()
+  const disableAnimation = Boolean(prefersReduced) || window.matchMedia('(pointer: coarse)').matches
 
   return (
     <div className={`${styles.track} ${className ?? ''}`}>
       <motion.div
         className={styles.inner}
-        animate={prefersReduced ? undefined : { x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%'] }}
+        animate={disableAnimation ? undefined : { x: direction === 'left' ? ['0%', '-50%'] : ['-50%', '0%'] }}
         transition={{ duration, ease: 'linear', repeat: Infinity }}
       >
         {children}

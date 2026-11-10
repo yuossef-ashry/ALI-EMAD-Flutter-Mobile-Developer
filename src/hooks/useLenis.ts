@@ -4,7 +4,8 @@ import Lenis from 'lenis'
 export function useLenis() {
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReduced) return
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches
+    if (prefersReduced || isTouchDevice) return
 
     const lenis = new Lenis({
       duration: 0.6,

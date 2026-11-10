@@ -16,6 +16,7 @@ function useStagger(delay: number) {
 
 export function Hero() {
   const prefersReduced = useReducedMotion()
+  const reduceAmbientMotion = Boolean(prefersReduced) || window.matchMedia('(pointer: coarse)').matches
   const px = useMotionValue(50)
   const py = useMotionValue(50)
   const spotX = useSpring(px, { stiffness: 60, damping: 20 })
@@ -86,49 +87,49 @@ export function Hero() {
         >
           <motion.div
             className={styles.glowPulse}
-            animate={prefersReduced ? undefined : { opacity: [0.5, 0.9, 0.5], scale: [1, 1.06, 1] }}
+            animate={reduceAmbientMotion ? undefined : { opacity: [0.5, 0.9, 0.5], scale: [1, 1.06, 1] }}
             transition={{ duration: 5, ease: 'easeInOut', repeat: Infinity }}
           />
           <motion.div
             className={styles.ring}
-            animate={prefersReduced ? undefined : { rotate: -360 }}
+            animate={reduceAmbientMotion ? undefined : { rotate: -360 }}
             transition={{ duration: 60, ease: 'linear', repeat: Infinity }}
           />
           <motion.div
             className={`${styles.blob} ${styles.b1}`}
-            animate={prefersReduced ? undefined : { rotate: 360 }}
+            animate={reduceAmbientMotion ? undefined : { rotate: 360 }}
             transition={{ duration: 40, ease: 'linear', repeat: Infinity }}
           />
           <motion.div
             className={`${styles.blob} ${styles.b2}`}
-            animate={prefersReduced ? undefined : { rotate: -360 }}
+            animate={reduceAmbientMotion ? undefined : { rotate: -360 }}
             transition={{ duration: 46, ease: 'linear', repeat: Infinity }}
           />
           <motion.div
             className={`${styles.blob} ${styles.b3}`}
-            animate={prefersReduced ? undefined : { rotate: 360 }}
+            animate={reduceAmbientMotion ? undefined : { rotate: 360 }}
             transition={{ duration: 34, ease: 'linear', repeat: Infinity }}
           />
           <motion.div
             className={styles.photoWrap}
-            animate={prefersReduced ? undefined : { y: [0, -12, 0] }}
+            animate={reduceAmbientMotion ? undefined : { y: [0, -12, 0] }}
             transition={{ duration: 6, ease: 'easeInOut', repeat: Infinity }}
           >
             <img src={heroPhoto} alt="Ali Emad, Flutter Mobile Developer" className={styles.photo} />
           </motion.div>
           <motion.span
             className={`${styles.sparkle} ${styles.sparkle1}`}
-            animate={prefersReduced ? undefined : { opacity: [0, 1, 0], scale: [0.6, 1, 0.6] }}
+            animate={reduceAmbientMotion ? undefined : { opacity: [0, 1, 0], scale: [0.6, 1, 0.6] }}
             transition={{ duration: 3.2, ease: 'easeInOut', repeat: Infinity, delay: 0.4 }}
           />
           <motion.span
             className={`${styles.sparkle} ${styles.sparkle2}`}
-            animate={prefersReduced ? undefined : { opacity: [0, 1, 0], scale: [0.6, 1, 0.6] }}
+            animate={reduceAmbientMotion ? undefined : { opacity: [0, 1, 0], scale: [0.6, 1, 0.6] }}
             transition={{ duration: 3.6, ease: 'easeInOut', repeat: Infinity, delay: 1.6 }}
           />
           <motion.span
             className={styles.floatTag}
-            animate={prefersReduced ? undefined : { y: [0, -8, 0] }}
+            animate={reduceAmbientMotion ? undefined : { y: [0, -8, 0] }}
             transition={{ duration: 4, ease: 'easeInOut', repeat: Infinity }}
           >
             // building with Flutter

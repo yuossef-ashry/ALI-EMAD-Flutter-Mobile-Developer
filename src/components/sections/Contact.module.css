@@ -181,3 +181,14 @@
     padding: 28px 22px;
   }
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .chip,
+  .formCard {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .formCard {
+    background: rgba(16, 25, 43, 0.88);
+  }
+}

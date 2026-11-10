@@ -69,8 +69,11 @@ export function Navbar() {
           </div>
 
           <button
+            type="button"
             className={`${styles.burger} ${open ? styles.burgerOpen : ''}`}
-            aria-label="Menu"
+            aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((v) => !v)}
           >
             <span />
@@ -83,11 +86,17 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-navigation"
             className={styles.overlay}
+            role="navigation"
+            aria-label="Mobile navigation"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35 }}
+            onClick={(event) => {
+              if (event.target === event.currentTarget) setOpen(false)
+            }}
           >
             {LINKS.map((link, i) => (
               <motion.a

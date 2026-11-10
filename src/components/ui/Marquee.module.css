@@ -19,3 +19,9 @@
     transform: none !important;
   }
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .inner {
+    will-change: auto;
+  }
+}

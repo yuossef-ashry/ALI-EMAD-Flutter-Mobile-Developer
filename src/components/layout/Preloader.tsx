@@ -7,7 +7,9 @@ const easeOut = [0.22, 0.61, 0.36, 1] as const
 
 function shouldShowIntro() {
   if (typeof window === 'undefined') return false
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches
+  if (prefersReduced || isTouchDevice) return false
   return sessionStorage.getItem(SESSION_KEY) !== '1'
 }
 

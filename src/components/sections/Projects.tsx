@@ -29,7 +29,12 @@ function ProjectCard({
         aria-label={`View ${project.title} project image`}
       />
       <div className={styles.cardImg}>
-        <img src={project.image} alt={`${project.title} mobile app screens`} loading="lazy" />
+        <img
+          src={project.thumbnail}
+          alt={`${project.title} mobile app screens`}
+          loading="lazy"
+          decoding="async"
+        />
         <span className={styles.cardNo}>{project.no}</span>
         <span className={styles.cardView}>View image <FiMaximize2 /></span>
       </div>
@@ -80,7 +85,12 @@ export function Projects() {
             onClick={() => setSelectedProject(featuredProject)}
             aria-label={`View ${featuredProject.title} project image`}
           >
-            <img src={featuredProject.image} alt="Islami app interface previews" />
+            <img
+              src={featuredProject.thumbnail}
+              alt="Islami app interface previews"
+              loading="lazy"
+              decoding="async"
+            />
             <span className={styles.imageLabel}>Featured app · 01</span>
             <span className={styles.featuredPreview}>View image <FiMaximize2 /></span>
           </button>
